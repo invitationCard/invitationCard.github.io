@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <title>Wedding Site</title>
+</head>
+<body>
+
+
+  <!-- Add jQuery CDN before any script using $ -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <div class="zoom main-text firstSection">
+      <img class="hero-img"src="/static/img/img-hero-section.jpg" alt="">
+      <div class="overlay-text">
+        <img class="text-img" src="/static/img/NOS+CASAMOS+BLANCO.png" alt="">
+        <h3>Les tenemos asignado un asiento de honor en nuestro gran dia</h3>
+        <audio id="audioPlayer">
+          <source src="/static/audio/demo-music.mp3" type="audio/mp3">
+        </audio>
+        <button id="playBtn">
+          <span id="playPauseIcon">
+            <!-- Play SVG (default) -->
+            <svg id="playIcon" xmlns="http://www.w3.org/2000/svg" viewBox="-22 -22 80 80" fill="rgb(0, 0, 0, 1)" class="Icon-sc-fc05f1f0-0 fhezIX"><path d="m12.233 7.68 15.75 10.124c.69.443.69 1.45 0 1.892L12.233 29.82a1.125 1.125 0 0 1-1.733-.947V8.627c0-.89.985-1.428 1.733-.947z"></path></svg>
+            <!-- Pause SVG (hidden by default) -->
+            <svg id="pauseIcon" xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 160 160" fill="rgb(0, 0, 0, 1)" style="display:none;"><rect x="10" y="10" width="12" height="40"/><rect x="38" y="10" width="12" height="40"/></svg>
+          </span>
+        </button>
+        <script>
+          $(function() {
+            var audio = document.getElementById('audioPlayer');
+            var playBtn = document.getElementById('playBtn');
+            var playIcon = document.getElementById('playIcon');
+            var pauseIcon = document.getElementById('pauseIcon');
+            var isPlaying = false;
+
+            function showPlay() {
+              playIcon.style.display = '';
+              pauseIcon.style.display = 'none';
+            }
+            function showPause() {
+              playIcon.style.display = 'none';
+              pauseIcon.style.display = '';
+            }
+
+            playBtn.addEventListener('click', function() {
+              if (audio.paused) {
+                audio.play();
+                showPause();
+                isPlaying = true;
+              } else {
+                audio.pause();
+                showPlay();
+                isPlaying = false;
+              }
+            });
+
+            audio.addEventListener('ended', function() {
+              showPlay();
+              isPlaying = false;
+            });
+          });
+        </script>
+      </div>
+    </div>
+
+
+    <script>
+      $(document).ready(function(){
+        $(window).scroll(function(){
+          var scroll = $(window).scrollTop();
+          $(".zoom img").css({
+            width: (100 + scroll / 10) + "%"
+          });
+          // Only apply to .zoom2 if it exists
+          if ($(".zoom2 img").length > 0) {
+            if (scroll >= 1000) {
+              var newWidth = (300 - scroll / 10);
+              if (newWidth < 110) newWidth = 110; 
+              $(".zoom2 img").css({
+                width: newWidth + "%"
+              });
+            }
+          }
+        });
+      }); 
+    </script>
+
+
+  <div class="main-text secondSection">
+    <img src="/static/img/FLORES+DEL+DESIERTO+2.png" alt="" class="top-bottom">
+    <p class="name">Carolina</p>
+    <p class="last-name">Martinez Nevarez</p> 
+    <img class="text-img2" src="/static/img/y-letter.png" alt="">
+    <p class="name-husband">Hector Daniel</p>
+    <p class="last-name-husband">Tenorio Arteaga</p>
+    <h3 class="invitation-text">Te invitan a celebrar <br> su matrimonio</h3>
+    <p class="location">Aguascalientes, ags.</p> 
+  </div>
+
+
+  <script>
+
+  $(document).ready(function () {
+    $(window).scroll(function () {
+      var scroll = $(window).scrollTop();
+
+      // Ahora más lento: 400px de scroll para completar el movimiento
+      var maxScroll = 660;
+      var maxLeft = 200; // posición inicial (fuera)
+      var minLeft = 130;  // posición final (centro)
+
+      var progress = scroll / maxScroll;
+      if (progress > 1) progress = 1;
+      if (progress < 0) progress = 0;
+
+      var newLeft = maxLeft - (progress * (maxLeft - minLeft));
+      $(".top-bottom").css("left", newLeft + "%");
+
+      // Tu efecto zoom original
+      $(".zoom img").css({
+        width: (100 + scroll / 10) + "%"
+      });
+
+      if ($(".zoom2 img").length > 0) {
+        if (scroll >= 1000) {
+          var newWidth = (300 - scroll / 10);
+          if (newWidth < 110) newWidth = 110;
+          $(".zoom2 img").css({
+            width: newWidth + "%"
+          });
+        }
+      }
+    });
+  });
+
+
+  </script>
+
+  <div class="zoom main-text thirdSection">
+      <img class="hero-img"src="/static/img/thirdSectionImg.jpg" walt="">
+      <div class="overlay-text-thirdSection">
+
+        <h3>Nuestro amor es la prueba de que el destino existe</h3>
+        
+      </div>
+    </div>
+
+  <div class="fourthSection main-text ">
+    <img class="text-img4" src="/static/img/WEDDING-BELLS.png" alt="">
+    <P class="text-middle">Con la bendicion de Dios y</P>
+    <img class="text-img3" src="/static/img/NUESTROS+PADRES.png" alt="">
+    <img class="text-img5" src="/static/img/NOVIA.png" alt="">
+
+
+
+      <div class="overlay-text-fourthSection">
+        <h3>
+          Juan manuel <br> martinez ortega <br><br> & <br><br> ma. de lourdes <br> Nevarez marquez
+        </h3>
+      </div>
+
+      <img class="text-img6" src="/static/img/NOVIO.png" alt="">
+
+      <div class="overlay-text-fourthSection2">
+        <h3>
+          JOSE HIPOLITO <br> tenorio GUEVARA <br><br> & <br><br> ANA MARIA <br> ARTEAGA PEREZ
+        </h3>
+      </div>
+    </div>
+
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <div class="zoom3 main-text thirdSection">
+      <img class="hero-img"src="/static/img/fifthSectionImg.jpg" walt="">
+      <div class="overlay-text-fifthSection">
+
+        <h3>Celebremos que el amor existe <br> ¡Gracias por acompañarnos!</h3>
+        
+      </div>
+    </div>
+
+  <script>
+
+      $(document).ready(function () {
+      $(window).scroll(function () {
+      var scroll = $(window).scrollTop();
+      console.log(scroll);
+
+        // Tu efecto zoom original
+      $(".zoom3 img").css({
+          width: (10 + scroll / 20) + "%"
+        });
+      })
+    });
+  </script>
+
+  <div class="sixthSection main-text ">
+    <img class="text-img7" src="/static/img/ANILLOS.png" alt="">
+    <P class="text-middle">Y la compañia de </P>
+    <img class="text-img8" src="/static/img/NUESTROS+PADRINOS.png" alt="">
+      <div class="overlay-text-sixthSection">
+        <h3>
+          Juan manuel <br> martinez ortega <br><br> & <br><br> ma. de lourdes <br> Nevarez marquez
+        </h3>
+      </div>
+  </div>
+    
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <div class="zoom4 main-text thirdSection">
+      <img class="hero-img"src="/static/img/img-hero-section.jpg" walt="">
+      <div class="overlay-text-seventhSection">
+
+        <h3>El amor es el motor que impulsa <br> nuestras vidas, la fuerza que nos inspira a <br> ser mejores personas</h3>
+        
+      </div>
+    </div>
+
+  <script>
+
+      $(document).ready(function () {
+      $(window).scroll(function () {
+      var scroll = $(window).scrollTop();
+      console.log(scroll);
+
+        // Tu efecto zoom original
+      $(".zoom4 img").css({
+          width: (10 + scroll / 35) + "%"
+        });
+      })
+    });
+  </script>
+
+  <div class="eighthSection main-text ">
+    <P class="text-middle">Celebra con nosotros </P>
+    <img class="text-img9" src="/static/img/EL+DIA.png" alt="">
+    <img src="/static/img/FECHA.png" alt="" class="date-img">
+  </div>
+
+  <div class="main-text thirdSection">
+      <img class="hero-img"src="/static/img/ninthSectionImg.jpg" walt="">
+  </div>
+
+  <div class="tenthSection main-text ">
+    <img class="text-img10" src="/static/img/CEREMONIA+RELIGIOSA+3.png" alt="">
+    <img class="text-img11" src="/static/img/CEREMONIA+RELIGIOSA.png" alt="">
+    <P class="text-middle-location">PARROQUIA <br> Lorem, ipsum. Dolor</P>
+    <P class="text-middle">Jardin, Lorem, ipsum, <br> 20000, Aguascalientes </P>
+    <P class="text-middle-location1"> 07:00 PM</P>
+    <img class="text-img12" src="/static/img/UBICACION.png" alt="">
+    <button class="btn-clickHere" > CLICK AQUÍ </button>
+    <img class="text-img13" src="/static/img/SEPARADOR+FLORES+DEL+DESIERTO.png" alt="">
+    
+  </div>
+
+  <div class="eleventhSection main-text ">
+    <img class="text-img14" src="/static/img/RECEPCIONIMG.JPEG" alt="">
+  </div>
+
+  <div class="twelfthSection main-text ">
+    <img class="text-img15" src="/static/img/RECEPCION2.png" alt="">
+    <img class="text-img16" src="/static/img/RECEPCION.png" alt="">
+    <P class="text-middle-location">Lorem, ipsum. Dolor</P>
+    <P class="text-middle">Jardin, Lorem, ipsum, <br> 20000, Aguascalientes </P>
+    <P class="text-middle-location1">09:00 PM</P>
+    <img class="text-img12" src="/static/img/UBICACION.png" alt="">
+    <button class="btn-clickHere" > CLICK AQUÍ </button>
+    <img class="text-img13" src="/static/img/SEPARADOR+FLORES+DEL+DESIERTO.png" alt=""> 
+  </div>
+
+  <div class="thirteenthSection main-text ">
+    <img class="text-img17" src="/static/img/MESA+DE++REGALOS+BLANCO+ATARDECER.png" alt="">
+  </div>
+
+  <div class="fourteenthSection main-text ">
+    <img class="text-img18" src="/static/img/ICONO+MESA+DE+REGALOS.png" alt="">
+    <img class="text-img19" src="/static/img/MESA+DE+REGALOS.png" alt="">
+    <P class="text-middle">Agradecemos mucho todo su amor y apoyo al iniciar esta etapa <br> de formar nuestro hogar.</P>
+    <img class="text-img20" src="/static/img/LIVERPOOL.JPEG" alt="">
+    <P class="text-middle2">NÚMERO DE EVENTO:</P>
+    <P class="text-middle3">51530476</P>
+    <button class="btn-clickHere" > CLICK AQUÍ </button>
+  </div>
+
+  <div class="fifteenthSection main-text ">
+    <img class="text-img21" src="/static/img/IMG-SECTION15.jpg" alt="">
+  </div>
+
+  <div class="sixteenthSection main-text ">
+    <img class="text-img22" src="/static/img/LLUVIA++DE+SOBRES.png" alt="">
+    <P class="text-middle">Si no tienes tiempos o no sabes qué regalarnos... </p>
+    <img class="text-img23" src="/static/img/lluvia+de+sobres.png" alt="">
+    <img class="" src="/static/img/SEPARADOR+FLORES+DEL+DESIERTO.png" alt="">
+    <img class="text-img24" src="/static/img/ICONO+LLEVUA+SOBRES.png" alt="">
+    <P class="text-middle2">La lluvia de sobres es la tradicion de regalar dinero en efectivo a los novios en un sobre el dia del evento</p>
+
+  </div>
+
+  <div class="seventeenthSection main-text ">
+    <img class="text-img25" src="/static/img/img-thirdSection.jpg" alt="">
+  </div>
+
+  <div class="eighteenthSection main-text ">
+    <img class="text-img26" src="/static/img/codigo+de+vestimenta.png" alt="">
+    <P class="text-middle">FORMAL</P>
+    <p class="text-middle2">HOMBRES: TRAJE</p>
+    <p class="text-middle3">MUJERES: VESTIDO LARGO </p>
+    <P class="text-middle4">EL COLOR BLANCO ESTA RESERVADO <br> PARA LA NOVIA</P>
+    <img class="text-img27" src="/static/img/NO+NIÑOS.png" alt="">
+    <P class="text-middle5">NO NIÑOS</P>
+  </div>
+
+  <div class="nineteenthSection main-text ">
+    <img class="text-img28" src="/static/img/IMG-20250507-WA0029.jpg" alt="">
+  </div>
+
+  <div class="twentiethSection main-text ">
+    <img class="text-img29" src="/static/img/WHATSAPP.png" alt="">
+    <img class="text-img30" src="/static/img/confirma+tu+asistencia.png" alt="">
+    <P class="text-middle">Lo más importante para nosotros es tu compañía.<br> Da click en el boton inferior par confirmar tu asistencia </P>
+    <button class="btn-clickHere" > CLICK AQUÍ </button>
+    <p class="text-middle2">Una vez que confirmes, te agregaremos a nuestra lista de invitados.</p>
+  </div>
+
+  <div class="twentyfirstSection main-text ">
+    <img class="text-img31" src="/static/img/IMG10.jpg" alt="">
+  </div>
+
+  <div class="twentysecondSection main-text ">
+    <img class="text-img32" src="/static/img/FLORES+DEL+DESIERTO.png" alt="">
+    <img class="text-img33" src="/static/img/no+faltes.png" alt="">
+    <img class="text-img34" src="/static/img/ANILLOS-min.PNG" alt="">
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
